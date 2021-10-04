@@ -25,5 +25,44 @@ int main(int argc, char *argv[]) {
 	int border = atoi(argv[2]);
 	//Your codes here
 	
+	int h=height;
+	int b=border;
+	int a[100][100];
+	for (int i = 1; i <= h; i++)
+		for (int j = 1; j <= h * 2 - 1; j++)
+			a[i][j] = 1;
+
+	for (int i = 1; i < h; i++)
+		for (int j = 1; j <= h - i; j++)
+			a[i][j] = 0;
+
+	for (int i = 1; i < h; i++)
+		for (int j = h + i; j <= h * 2 - 1; j++)
+			a[i][j] = 0;
+	int i = b + 1;
+	a[i][h] = 0;
+	int flag = 0;
+	while (i <= h - b)
+	{
+		a[i][h] = 0;
+		for (int j = 1; j <= flag; j++) {
+			a[i][h + j] = 0;
+			a[i][h - j] = 0;
+		}
+		i += 1;
+		flag += 1;
+	}
+	printf( " ");
+	for (int i = 1; i <= h; i++)
+		for (int j = 1; j <= h * b - 1; j++) {
+			if (a[i][j] == 1)
+				printf("* ");
+			else
+				printf( "  ");
+			if (j == h * b - 1) {
+				printf("\n");
+				printf(" ");
+			}
+		}
 	return 0;
 }
