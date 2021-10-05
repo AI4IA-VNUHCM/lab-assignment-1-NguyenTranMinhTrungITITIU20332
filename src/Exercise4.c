@@ -52,17 +52,21 @@ int main(int argc, char *argv[]) {
 		i += 1;
 		flag += 1;
 	}
-	printf( " ");
+	printf(" ");
 	for (int i = 1; i <= h; i++)
 		for (int j = 1; j <= h * b - 1; j++) {
 			if (a[i][j] == 1)
 				printf("* ");
 			else
-				printf( "  ");
-			if (j == h * b - 1) {
+				printf("  ");
+			if (j == h * b - 1 && i==h) {
+			}
+			else if (j == h * b - 1)
+			{
 				printf("\n");
 				printf(" ");
 			}
 		}
+	printf(" ");
 	return 0;
 }
